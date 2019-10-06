@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthAdapterService } from './core/auth-adapter.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'ivy-project';
   private worker = new Worker('./app.worker', { type: 'module' });
-  constructor() {
+  constructor(private authAdapterService: AuthAdapterService) {
     // when calculation done
     if (typeof Worker !== 'undefined') {
       // Create a new
@@ -21,7 +22,11 @@ export class AppComponent {
     }
   }
 
-  clickButton()  {
+  ngOnInit() {
+    
+    this.authAdapterService.initCodeFlow();
+  }
+  clickButton() {
     this.worker.postMessage('hello');
   }
 
