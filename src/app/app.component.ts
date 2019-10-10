@@ -23,8 +23,8 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    
-    this.authAdapterService.initCodeFlow();
+    // need to change to code flow in the future
+    this.authAdapterService.tryLogin();
   }
   clickButton() {
     this.worker.postMessage('hello');

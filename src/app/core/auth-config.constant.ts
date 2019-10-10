@@ -7,5 +7,5 @@ export const authConfig: AuthConfig = {
     loginUrl: 'http://localhost:3000/auth/login',
     issuer: 'http://localhost:3000',
     scope: 'profile email',
-    responseType: 'code'
+    responseType: 'token'
 } 
